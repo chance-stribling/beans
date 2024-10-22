@@ -1,24 +1,30 @@
 <script>
-  export default {
+export default {
     data: () => ({
-      items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
+        items: ["Foo", "Bar", "Fizz", "Buzz"],
     }),
-  }
+};
 </script>
 <template>
     <div class="main">
         <div class="text-h3 title">Settings</div>
         <div class="input">
-            
-            <v-btn block color="white" class="mb-5" @click="this.$router.push('/set')">Add Player</v-btn>
+            <v-btn
+                block
+                color="white"
+                class="mb-5"
+                @click="this.$router.push('/set')"
+                >Add Player</v-btn
+            >
 
-            <v-btn block color="white" @click="this.$router.push('/')">Done</v-btn>
-            
+            <v-btn block color="white" @click="this.$router.push('/')"
+                >Done</v-btn
+            >
         </div>
     </div>
 </template>
 <style scoped>
-.main{
+.main {
     height: 100vh;
     width: 100%;
     display: flex;
@@ -27,10 +33,10 @@
     justify-content: center;
     align-items: center;
 }
-.title{
+.title {
     margin-bottom: 1rem;
 }
-.input{
+.input {
     width: 300px;
 }
 </style>

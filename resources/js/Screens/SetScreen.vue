@@ -1,18 +1,15 @@
 <script>
-  import axios from 'axios'
+import axios from "axios";
 
-  export default {
+export default {
     data: () => ({
-      players: [],
-      player1: '',
-      player2: '',
+        players: [],
+        player1: "",
+        player2: "",
     }),
-    mounted() {
-	},
-    methods: {
-
-    },
-  }
+    mounted() {},
+    methods: {},
+};
 </script>
 <template>
     <div class="main">
@@ -55,7 +52,7 @@
     </div>
 </template>
 <style scoped>
-.main{
+.main {
     height: 100vh;
     width: 100%;
     display: flex;
@@ -63,7 +60,7 @@
     justify-content: space-evenly;
     align-items: center;
 }
-.card1{
+.card1 {
     width: 48vw;
     display: flex;
     flex-direction: column;
@@ -72,7 +69,7 @@
     padding: 2rem;
     margin-bottom: 10px;
 }
-.card2{
+.card2 {
     width: 48vw;
     display: flex;
     flex-direction: column;
@@ -80,19 +77,19 @@
     justify-content: space-evenly;
     padding: 2rem;
 }
-.btns{
+.btns {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.btns2{
+.btns2 {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.btn{
+.btn {
     height: 100%;
     width: 48%;
 }

@@ -1,15 +1,15 @@
 <script>
-import TopBar from './Components/TopBar.vue';
+import TopBar from "./Components/TopBar.vue";
 export default {
-  components: {
-    TopBar
-  },
-}
+    components: {
+        TopBar,
+    },
+};
 </script>
 
 <template>
     <v-app class="app">
-        <TopBar/>
+        <TopBar />
         <v-main class="pa-0 ma-0">
             <v-container fluid class="pa-0 ma-0">
                 <router-view v-slot="{ Component, route }">
@@ -22,7 +22,7 @@ export default {
     </v-app>
 </template>
 <style scoped>
-    .app{
-        background-color: black;
-    }
+.app {
+    background-color: black;
+}
 </style>

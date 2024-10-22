@@ -1,10 +1,12 @@
 <template>
     <div class="top-bar">
-        <div class="text-h3 cursor-pointer" @click="this.$router.push('/')">Beans</div>
+        <div class="text-h3 cursor-pointer" @click="this.$router.push('/')">
+            Beans
+        </div>
     </div>
 </template>
 <style scoped>
-.top-bar{
+.top-bar {
     position: absolute;
     height: fit-content;
     width: 100%;
@@ -15,5 +17,4 @@
     justify-content: space-between;
     align-items: center;
 }
-
 </style>

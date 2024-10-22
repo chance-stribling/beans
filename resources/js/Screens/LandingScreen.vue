@@ -1,17 +1,26 @@
 <template>
     <div class="main">
-        <v-card class="card text-h6 elevation-10" @click="this.$router.push('/history')">
-            Resume
-        </v-card><v-card class="card text-h6 elevation-10"@click="this.$router.push('/new-set')">
+        <v-card
+            class="card text-h6 elevation-10"
+            @click="this.$router.push('/history')"
+        >
+            Resume </v-card
+        ><v-card
+            class="card text-h6 elevation-10"
+            @click="this.$router.push('/new-set')"
+        >
             New Set
         </v-card>
-        <v-card class="card text-h6 elevation-10" @click="this.$router.push('/settings')">
+        <v-card
+            class="card text-h6 elevation-10"
+            @click="this.$router.push('/settings')"
+        >
             Settings
         </v-card>
     </div>
 </template>
 <style scoped>
-.main{
+.main {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -20,7 +29,7 @@
     justify-content: space-evenly;
     padding: 1rem;
 }
-.card{
+.card {
     height: 150px;
     width: 150px;
     background-color: white;
