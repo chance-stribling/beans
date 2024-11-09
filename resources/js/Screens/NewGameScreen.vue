@@ -191,6 +191,7 @@ export default {
 </template>
 <style scoped>
 .main {
+    margin-top: 64px;
     min-height: 100dvh;
     padding: 2rem;
     width: 100%;
