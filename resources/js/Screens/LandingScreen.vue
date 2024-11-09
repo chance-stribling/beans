@@ -1,23 +1,26 @@
 <template>
-    <div class="main">
+    <v-sheet color="secondary" class="main">
         <v-card
-            class="card text-h6 elevation-10"
+            color="accent"
+            class="card text-h4 elevation-10"
             @click="this.$router.push('/resume')"
         >
             Resume </v-card
         ><v-card
-            class="card text-h6 elevation-10"
+            color="accent"
+            class="card text-h4 elevation-10"
             @click="this.$router.push('/new-game')"
         >
             New Game
         </v-card>
         <v-card
-            class="card text-h6 elevation-10"
+            color="accent"
+            class="card text-h4 elevation-10"
             @click="this.$router.push('/settings')"
         >
             Settings
         </v-card>
-    </div>
+    </v-sheet>
 </template>
 <style scoped>
 .main {
@@ -31,9 +34,9 @@
 }
 .card {
     height: 150px;
-    width: 200px;
-    background-color: white;
-    color: black;
+    width: 90vw;
+    color: white !important;
+    font-weight: bold;
     display: flex;
     flex-direction: column;
     justify-content: center;

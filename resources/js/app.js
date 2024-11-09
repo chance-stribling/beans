@@ -8,9 +8,29 @@ import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 
+const customTheme = {
+    dark: false,
+    colors: {
+        primary: "#91520F",
+        secondary: "#128D88",
+        tertiary: "#F1A82D",
+        accent: "#F1A82D",
+        error: "#FF5252",
+        info: "#2196F3",
+        success: "#4CAF50",
+        warning: "#FFC107",
+    },
+};
+
 const vuetify = createVuetify({
     components,
     directives,
+    theme: {
+        defaultTheme: "customTheme",
+        themes: {
+            customTheme,
+        },
+    },
 });
 
 createApp(App).use(router).use(vuetify).mount("#app");

@@ -186,7 +186,7 @@ export default {
                         this.getMatch();
                     })
                     .catch((error) => console.log(error));
-                
+
                 //if num of matches (set level) == matches won (game level) set set winner
                 this.updateSet(player);
             } else if (player == "player2") {
