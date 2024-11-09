@@ -73,7 +73,7 @@ export default {
     <BackButton />
     <v-sheet color="secondary" class="main">
         <v-card class="card" color="accent">
-            <div class="text-h3 title">New Game</div>
+            <div class="text-h4 font-weight-bold title">New Game</div>
             <div class="input">
                 <div class="text-h6">Number of Players</div>
                 <v-slider
