@@ -191,7 +191,8 @@ export default {
 </template>
 <style scoped>
 .main {
-    height: 100vh;
+    min-height: 100vh;
+    padding: 2rem;
     width: 100%;
     display: flex;
     color: white;

@@ -16,6 +16,7 @@
     position: absolute;
     bottom: 2rem;
     left: 2rem;
+    z-index: 3;
 }
 
 </style>
