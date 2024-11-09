@@ -1,18 +1,21 @@
 <template>
-    <div class="button">
+    <div class="button-pos">
         <v-btn
-            icon="mdi-arrow-left"
-            color="white"
+            color="accent"
+            height="60px"
+            width="60px"
+            class="rounded-circle"
             @click="this.$router.go(-1)"
-        ></v-btn>
+        >
+        <v-icon icon="mdi-arrow-left" size="large" class="p-0 m-0" color="white"></v-icon>
+    </v-btn>
     </div>
 </template>
 <style scoped>
-.button {
-    height: 100px;
-    width: 100px;
+.button-pos {
     position: absolute;
-    top: 15%;
+    bottom: 2rem;
     left: 2rem;
 }
+
 </style>

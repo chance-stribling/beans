@@ -33,7 +33,6 @@
     padding: 1rem;
 }
 .card {
-    height: 150px;
     width: 90vw;
     color: white !important;
     font-weight: bold;
@@ -42,5 +41,6 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
+    padding: 2rem;
 }
 </style>
