@@ -190,8 +190,8 @@ export default {
     </v-sheet>
 </template>
 <style scoped>
-.main {
-    min-height: 100dvh;
+.main {margin-top: 64px;
+    min-height: 100vh;
     padding: 2rem;
     width: 100%;
     display: flex;
