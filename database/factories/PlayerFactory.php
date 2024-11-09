@@ -20,8 +20,9 @@ class PlayerFactory extends Factory
         return [
             'name' => $this->faker->name,
             'nickname' => $this->faker->word.' '.$this->faker->word,
-            'totalPts' => 0,
             'totalBeans' => 0,
+            'totalBakedBeans' => 0,
+            'totalGoldenBeans' => 0,
         ];
     }
 }

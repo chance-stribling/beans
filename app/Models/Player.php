@@ -11,7 +11,8 @@ class Player extends Model
     protected $fillable = [
         'name',
         'nickname',
-        'totalPts',
         'totalBeans',
+        'totalBakedBeans',
+        'totalGoldenBeans',
     ];
 }

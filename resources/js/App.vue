@@ -1,15 +1,17 @@
 <script>
 import TopBar from "./Components/TopBar.vue";
+import BackButton from "./Components/BackButton.vue";
 export default {
     components: {
         TopBar,
+        BackButton,
     },
 };
 </script>
 
 <template>
     <v-app class="app">
-        <TopBar />
+        <TopBar class="topbar" />
         <v-main class="pa-0 ma-0">
             <v-container fluid class="pa-0 ma-0">
                 <router-view v-slot="{ Component, route }">
@@ -24,5 +26,8 @@ export default {
 <style scoped>
 .app {
     background-color: black;
+}
+.topbar {
+    z-index: 2;
 }
 </style>

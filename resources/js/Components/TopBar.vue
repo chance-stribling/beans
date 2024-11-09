@@ -7,7 +7,7 @@
 </template>
 <style scoped>
 .top-bar {
-    position: absolute;
+    position: sticky;
     height: fit-content;
     width: 100%;
     padding: 1rem 2rem;

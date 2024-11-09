@@ -4,17 +4,14 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Player;
 
-class PlayerSeeder extends Seeder
+class AMatchSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Player::factory()
-            ->count(3)
-            ->create();
+        //
     }
 }

@@ -13,13 +13,13 @@ export default {
                 block
                 color="white"
                 class="mb-5"
-                @click="this.$router.push('/set')"
+                @click="this.$router.push('/new-player')"
                 >Add Player</v-btn
             >
 
-            <v-btn block color="white" @click="this.$router.push('/')"
-                >Done</v-btn
-            >
+            <v-btn block color="success" @click="this.$router.push('/')">
+                Save Changes
+            </v-btn>
         </div>
     </div>
 </template>

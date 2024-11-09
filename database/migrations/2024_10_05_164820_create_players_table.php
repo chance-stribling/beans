@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->text('name');
             $table->text('nickname');
-            $table->integer('totalPts');
             $table->integer('totalBeans');
+            $table->integer('totalBakedBeans');
+            $table->integer('totalGoldenBeans');
             $table->timestamps();
         });
     }

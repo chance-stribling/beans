@@ -11,20 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('games', function (Blueprint $table) {
+        Schema::create('a_matches', function (Blueprint $table) {
             $table->id();
+            $table->integer('set_id');
             $table->integer('player1_id');
             $table->integer('player2_id');
             $table->integer('player3_id')->nullable();
             $table->integer('player4_id')->nullable();
             $table->integer('player5_id')->nullable();
-            $table->integer('player1_sets_won')->nullable();
-            $table->integer('player2_sets_won')->nullable();
-            $table->integer('player3_sets_won')->nullable();
-            $table->integer('player4_sets_won')->nullable();
-            $table->integer('player5_sets_won')->nullable();
-            $table->integer('num_of_sets');
-            $table->integer('num_of_matches');
+            $table->integer('player1_pts')->nullable();
+            $table->integer('player2_pts')->nullable();
+            $table->integer('player3_pts')->nullable();
+            $table->integer('player4_pts')->nullable();
+            $table->integer('player5_pts')->nullable();
             $table->integer('num_of_players');
             $table->integer('winner')->nullable();
             $table->timestamps();
@@ -36,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('games');
+        Schema::dropIfExists('a_matches');
     }
 };

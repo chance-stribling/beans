@@ -6,28 +6,26 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Game extends Model
+class Set extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'game_id',
         'player1_id',
         'player2_id',
         'player3_id',
         'player4_id',
         'player5_id',
-        'player1_sets_won',
-        'player2_sets_won',
-        'player3_sets_won',
-        'player4_sets_won',
-        'player5_sets_won',
-        'num_of_sets',
+        'player1_matches_won',
+        'player2_matches_won',
+        'player3_matches_won',
+        'player4_matches_won',
+        'player5_matches_won',
         'num_of_matches',
-        'num_of_players',
         'winner',
     ];
-    public function sets(): HasMany
+    public function matches(): HasMany
     {
-        return $this->hasMany(Set::class);
+        return $this->hasMany(aMatch::class);
     }
-
 }
