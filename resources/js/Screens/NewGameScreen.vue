@@ -70,8 +70,8 @@ export default {
 };
 </script>
 <template>
+    <BackButton />
     <v-sheet color="secondary" class="main">
-        <BackButton />
         <v-card class="card" color="accent">
             <div class="text-h3 title">New Game</div>
             <div class="input">
