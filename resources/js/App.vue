@@ -11,7 +11,7 @@ export default {
 
 <template>
     <v-app class="app">
-        <TopBar class="topbar" />
+        <TopBar />
         <v-main class="pa-0 ma-0">
             <v-container fluid class="pa-0 ma-0">
                 <router-view v-slot="{ Component, route }">
@@ -27,7 +27,5 @@ export default {
 .app {
     background-color: black;
 }
-.topbar {
-    z-index: 2;
-}
+
 </style>
