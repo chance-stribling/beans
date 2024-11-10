@@ -137,7 +137,7 @@ export default {
             </v-card>
         </div>
     </div>
-    <div class="main">
+    <v-sheet color="secondary" class="main">
         <v-overlay
             class="overlay"
             v-model="this.showAlert"
@@ -158,12 +158,12 @@ export default {
         <div class="versus-row">
             <div class="text-h4 text-white">
                 {{ this.game.player1_nickname }} <br />
-                Sets Won: {{ this.game.player1_sets_won }}
+                <!-- Sets Won: {{ this.game.player1_sets_won }} -->
             </div>
             <div class="text-h4 text-white">&nbsp;VS.&nbsp;</div>
             <div class="text-h4 text-white">
                 {{ this.game.player2_nickname }} <br />
-                Sets Won: {{ this.game.player2_sets_won }}
+                <!-- Sets Won: {{ this.game.player2_sets_won }} -->
             </div>
             <div class="text-h4 text-white" v-if="this.game.player3_nickname">
                 &nbsp;VS.&nbsp;
@@ -242,10 +242,11 @@ export default {
                 </div>
             </div>
         </div>
-    </div>
+    </v-sheet>
 </template>
 <style scoped>
 .main {
+    margin-top: 64px;
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -301,12 +302,14 @@ export default {
 .card-row {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
 }
 .card-col {
     width: 33%;
 }
 .versus-row {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 .overlay {
