@@ -19,6 +19,8 @@ Route::prefix('web')->group(function () {
     Route::post('/player', [PlayerController::class, 'create']);
     
     Route::get('/games', [GameController::class, 'index']);
+    Route::get('/games/withWinners', [GameController::class, 'indexWithWinner']);
+    Route::get('/games/withoutWinners', [GameController::class, 'indexWithoutWinner']);
     Route::get('/game/{id}', [GameController::class, 'getGameByID']);
     Route::put('/game/{id}/pts', [GameController::class, 'updatePts']);
     Route::put('/game/{id}/pts', [GameController::class, 'updatePts']);

@@ -29,7 +29,32 @@ class GameController extends Controller
         });
         return $games;
     }
+    public function indexWithWinner()
+    {
+        $games = Game::where('winner', !null)->get();
+        $games->map(function ($game) {
+            $game->player1_nickname = Player::where('id',$game->player1_id)->value('nickname');
+            $game->player2_nickname = Player::where('id',$game->player2_id)->value('nickname');
+            $game->player3_nickname = Player::where('id',$game->player3_id)->value('nickname');
+            $game->player4_nickname = Player::where('id',$game->player4_id)->value('nickname');
+            $game->player5_nickname = Player::where('id',$game->player5_id)->value('nickname');
 
+        });
+        return $games;
+    }
+    public function indexWithoutWinner()
+    {
+        $games = Game::where('winner', null)->get();
+        $games->map(function ($game) {
+            $game->player1_nickname = Player::where('id',$game->player1_id)->value('nickname');
+            $game->player2_nickname = Player::where('id',$game->player2_id)->value('nickname');
+            $game->player3_nickname = Player::where('id',$game->player3_id)->value('nickname');
+            $game->player4_nickname = Player::where('id',$game->player4_id)->value('nickname');
+            $game->player5_nickname = Player::where('id',$game->player5_id)->value('nickname');
+
+        });
+        return $games;
+    }
     /**
      * Display a listing of the resource.
      */
