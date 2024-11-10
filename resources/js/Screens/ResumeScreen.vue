@@ -11,12 +11,30 @@ export default {
         completedGames: [],
         reveal: false,
         player1_name: "",
+        isMobile: false,
+        inProgressHidden: false,
+        completedHidden: false
     }),
     mounted() {
         this.getGamesWithWinners();
         this.getGamesWithoutWinners();
+        this.mobileCheck();
+    },
+
+    created() {
+        window.addEventListener("resize", this.mobileCheck);
+    },
+    destroyed() {
+        window.removeEventListener("resize", this.mobileCheck);
     },
     methods: {
+        mobileCheck() {
+            if (window.innerWidth <= 1000) {
+                this.isMobile = true;
+            } else if (window.innerWidth > 1000) {
+                this.isMobile = false;
+            }
+        },
         getGamesWithWinners() {
             //get completed games
             axios
@@ -202,7 +220,7 @@ export default {
     }
     .mini-card {
     width: 100%;
-    height: 400px;
+    height: fit-content;
 }
 }
 </style>
