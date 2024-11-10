@@ -42,112 +42,167 @@ export default {
 <template>
     <v-sheet color="secondary" class="main">
         <BackButton />
-
-        <div class="text-h3 text-white mb-5">In Progress</div>
-        <v-card
-            v-for="game in inProgressGames"
-            color="accent"
-            class="card text-h6 elevation-10"
-            @click="this.$router.push('/game/' + game.id)"
-        >
-            <div class="card-col text-center">
-                <div class="text-h4 mb-2">
-                    {{ game.player1_nickname }}
-                </div>
-                <div class="text-h6">{{ game.player1_sets_won }} Points</div>
+        <v-card color="primary" class="big-card">
+            <div class="d-flex mb-5">
+                <div class="text-h4 chalk text-white mr-2">In Progress</div>
             </div>
-            <div class="card-col text-center">
-                <div class="text-h6">VS.</div>
-            </div>
-            <div class="card-col text-center">
-                <div class="text-h4 mb-2">{{ game.player2_nickname }}</div>
-                <div class="text-h6">{{ game.player2_sets_won }} Points</div>
-            </div>
-            <div v-if="game.player3_id" class="card-col text-center">
-                <div class="text-h6">VS.</div>
-            </div>
-            <div v-if="game.player3_id" class="card-col text-center">
-                <div class="text-h4 mb-2">{{ game.player3_nickname }}</div>
-                <div class="text-h6">{{ game.player3_sets_won }} Points</div>
-            </div>
-            <div v-if="game.player4_id" class="card-col text-center">
-                <div class="text-h6">VS.</div>
-            </div>
-            <div v-if="game.player4_id" class="card-col text-center">
-                <div class="text-h4 mb-2">{{ game.player4_nickname }}</div>
-                <div class="text-h6">{{ game.player4_sets_won }} Points</div>
-            </div>
-            <div v-if="game.player5_id" class="card-col text-center">
-                <div class="text-h6">VS.</div>
-            </div>
-            <div v-if="game.player5_id" class="card-col text-center">
-                <div class="text-h4 mb-2">{{ game.player5_nickname }}</div>
-                <div class="text-h6">{{ game.player5_sets_won }} Points</div>
+            <div class="big-card-content">
+                <v-card
+                    v-for="game in inProgressGames"
+                    color="secondary"
+                    class="mini-card text-h6 elevation-10"
+                    @click="this.$router.push('/game/' + game.id)"
+                >
+                    <div class="game-num chalk">Game: {{ game.id }}</div>
+                    <div class="mb-2">
+                        <div class="text-h5 chalk">
+                            {{ game.player1_nickname }}
+                        </div>
+                        <div class="text-h6 text-center chalk">
+                            {{ game.player1_sets_won }} Baked Beans
+                        </div>
+                    </div>
+                    <div class=" mb-2">
+                        <div class="text-h5 chalk">
+                            {{ game.player2_nickname }}
+                        </div>
+                        <div class="text-h6 text-center chalk">
+                            {{ game.player2_sets_won }} Baked Beans
+                        </div>
+                    </div>
+                    <div v-if="game.player3_id" class=" mb-2">
+                        <div class="text-h5 chalk">
+                            {{ game.player3_nickname }}
+                        </div>
+                        <div class="text-h6 text-center chalk">
+                            {{ game.player3_sets_won }} Baked Beans
+                        </div>
+                    </div>
+                    <div v-if="game.player4_id" class="mb-2">
+                        <div class="text-h5 chalk">
+                            {{ game.player4_nickname }}
+                        </div>
+                        <div class="text-h6 text-center chalk">
+                            {{ game.player4_sets_won }} Baked Beans
+                        </div>
+                    </div>
+                    <div v-if="game.player5_id">
+                        <div class="text-h5 chalk">
+                            {{ game.player5_nickname }}
+                        </div>
+                        <div class="text-h6 text-center chalk">
+                            {{ game.player5_sets_won }} Baked Beans
+                        </div>
+                    </div>
+                </v-card>
             </div>
         </v-card>
-        <div class="text-h3 text-white mb-5">Completed</div>
-        <v-card
-            v-for="game in completedGames"
-            color="accent"
-            class="card text-h6 elevation-10"
-            @click="this.$router.push('/game/' + game.id)"
-        >
-            <div class="card-col text-center">
-                <div class="text-h4 mb-2">
-                    {{ game.player1_nickname }}
-                </div>
-                <div class="text-h6">{{ game.player1_sets_won }} Points</div>
-            </div>
-            <div class="card-col text-center">
-                <div class="text-h6">VS.</div>
-            </div>
-            <div class="card-col text-center">
-                <div class="text-h4 mb-2">{{ game.player2_nickname }}</div>
-                <div class="text-h6">{{ game.player2_sets_won }} Points</div>
-            </div>
-            <div v-if="game.player3_id" class="card-col text-center">
-                <div class="text-h6">VS.</div>
-            </div>
-            <div v-if="game.player3_id" class="card-col text-center">
-                <div class="text-h4 mb-2">{{ game.player3_nickname }}</div>
-                <div class="text-h6">{{ game.player3_sets_won }} Points</div>
-            </div>
-            <div v-if="game.player4_id" class="card-col text-center">
-                <div class="text-h6">VS.</div>
-            </div>
-            <div v-if="game.player4_id" class="card-col text-center">
-                <div class="text-h4 mb-2">{{ game.player4_nickname }}</div>
-                <div class="text-h6">{{ game.player4_sets_won }} Points</div>
-            </div>
-            <div v-if="game.player5_id" class="card-col text-center">
-                <div class="text-h6">VS.</div>
-            </div>
-            <div v-if="game.player5_id" class="card-col text-center">
-                <div class="text-h4 mb-2">{{ game.player5_nickname }}</div>
-                <div class="text-h6">{{ game.player5_sets_won }} Points</div>
+        <v-card color="primary" class="big-card">
+            <div class="text-h4 chalk text-white mb-5">Completed</div>
+            <div class="big-card-content">
+                <v-card
+                    v-for="game in completedGames"
+                    color="secondary"
+                    class="mini-card text-h6 elevation-10"
+                    @click="this.$router.push('/game/' + game.id)"
+                >
+                <div class="game-num chalk">Game: {{ game.id }}</div>
+
+                    <div class="mb-2">
+                        <div class="text-h5 chalk">
+                            {{ game.player1_nickname }}
+                        </div>
+                        <div class="text-h6 text-center chalk">
+                            {{ game.player1_sets_won }} Baked Beans
+                        </div>
+                    </div>
+                    <div class=" mb-2">
+                        <div class="text-h5 chalk">
+                            {{ game.player2_nickname }}
+                        </div>
+                        <div class="text-h6 text-center chalk">
+                            {{ game.player2_sets_won }} Baked Beans
+                        </div>
+                    </div>
+                    <div v-if="game.player3_id" class=" mb-2">
+                        <div class="text-h5 chalk">
+                            {{ game.player3_nickname }}
+                        </div>
+                        <div class="text-h6 text-center chalk">
+                            {{ game.player3_sets_won }} Baked Beans
+                        </div>
+                    </div>
+                    <div v-if="game.player4_id" class="mb-2">
+                        <div class="text-h5 chalk">
+                            {{ game.player4_nickname }}
+                        </div>
+                        <div class="text-h6 text-center chalk">
+                            {{ game.player4_sets_won }} Baked Beans
+                        </div>
+                    </div>
+                    <div v-if="game.player5_id">
+                        <div class="text-h5 chalk">
+                            {{ game.player5_nickname }}
+                        </div>
+                        <div class="text-h6 text-center chalk">
+                            {{ game.player5_sets_won }} Baked Beans
+                        </div>
+                    </div>
+                </v-card>
             </div>
         </v-card>
     </v-sheet>
 </template>
 <style scoped>
 .main {
-    margin-top: 64px;
-    width: 100%;
-    min-height: 100vh;
+    margin-top: 80px;
+    width: 100vw;
+    min-height: calc(100dvh - 80px);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2rem;
+}
+.big-card {
+    width: 45%;
+    height: 100%;
+    padding: 2rem;
+    overflow-y: scroll;
+    
+}
+.big-card-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+.mini-card {
+    width: 230px;
+    height: 400px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    padding: 1rem;
 }
-.card {
-    min-height: 100px;
-    width: 90vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-bottom: 1rem;
+.game-num{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
 }
-
+@media only screen and (max-width: 1000px) {
+    .big-card {
+        width: 100%;
+        height:  calc(100dvh - 80px - 4rem);
+        margin-bottom: 1rem;
+    }
+    .main{
+        display: flex;
+        flex-direction: column;
+    }
+    .mini-card {
+    width: 100%;
+    height: 400px;
+}
+}
 </style>

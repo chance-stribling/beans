@@ -11,10 +11,9 @@ import * as directives from "vuetify/directives";
 const customTheme = {
     dark: false,
     colors: {
-        primary: "#91520F",
-        secondary: "#128D88",
-        tertiary: "#F1A82D",
-        accent: "#F1A82D",
+        primary: "#292D2E",
+        secondary: "#505357",
+        accent: "#D1CFC7",
         error: "#FF5252",
         info: "#2196F3",
         success: "#4CAF50",

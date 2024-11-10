@@ -1,21 +1,21 @@
 <template>
     <v-sheet color="secondary" class="main">
         <v-card
-            color="accent"
-            class="card text-h4 elevation-10"
+            color="primary"
+            class="card text-h4 elevation-10 chalk"
             @click="this.$router.push('/resume')"
         >
             Resume </v-card
         ><v-card
-            color="accent"
-            class="card text-h4 elevation-10"
+            color="primary"
+            class="card text-h4 elevation-10 chalk"
             @click="this.$router.push('/new-game')"
         >
             New Game
         </v-card>
         <v-card
-            color="accent"
-            class="card text-h4 elevation-10"
+            color="primary"
+            class="card text-h4 elevation-10 chalk"
             @click="this.$router.push('/settings')"
         >
             Settings

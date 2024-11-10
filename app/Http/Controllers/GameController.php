@@ -31,7 +31,7 @@ class GameController extends Controller
     }
     public function indexWithWinner()
     {
-        $games = Game::where('winner', !null)->get();
+        $games = Game::where('winner', !null)->orderBy('id', 'desc')->get();
         $games->map(function ($game) {
             $game->player1_nickname = Player::where('id',$game->player1_id)->value('nickname');
             $game->player2_nickname = Player::where('id',$game->player2_id)->value('nickname');
@@ -44,7 +44,7 @@ class GameController extends Controller
     }
     public function indexWithoutWinner()
     {
-        $games = Game::where('winner', null)->get();
+        $games = Game::where('winner', null)->orderBy('id', 'desc')->get();
         $games->map(function ($game) {
             $game->player1_nickname = Player::where('id',$game->player1_id)->value('nickname');
             $game->player2_nickname = Player::where('id',$game->player2_id)->value('nickname');

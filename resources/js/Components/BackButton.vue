@@ -7,8 +7,13 @@
             class="rounded-circle"
             @click="this.$router.go(-1)"
         >
-        <v-icon icon="mdi-arrow-left" size="large" class="p-0 m-0" color="accent"></v-icon>
-    </v-btn>
+            <v-icon
+                icon="mdi-arrow-left"
+                size="large"
+                class="p-0 m-0"
+                color="accent"
+            ></v-icon>
+        </v-btn>
     </div>
 </template>
 <style scoped>
@@ -18,5 +23,4 @@
     left: 2rem;
     z-index: 3;
 }
-
 </style>

@@ -35,6 +35,9 @@ export default {
             this.player3 = "";
             this.player4 = "";
             this.player5 = "";
+            this.num_of_players = 2;
+            this.num_of_sets = 5;
+            this.num_of_matches = 5;
         },
         createGame() {
             //create new game/set
@@ -97,7 +100,7 @@ export default {
                     </template>
                 </v-slider>
 
-                <div class="text-h6">Sets to Win Game</div>
+                <div class="text-h6">Sets in a Game</div>
                 <v-slider
                     color="secondary"
                     v-model="num_of_sets"
@@ -119,7 +122,7 @@ export default {
                     </template>
                 </v-slider>
 
-                <div class="text-h6">Matches to Win Set</div>
+                <div class="text-h6">Matches in a Set</div>
                 <v-slider
                     color="secondary"
                     v-model="num_of_matches"
@@ -180,10 +183,10 @@ export default {
                     v-model="player5"
                 ></v-select>
                 <div class="d-flex justify-space-evenly w-100">
+                    <v-btn color="error" @click="this.clear()">Reset</v-btn>
                     <v-btn color="success" @click="this.createGame()">
                         Ready
                     </v-btn>
-                    <v-btn color="error" @click="this.clear()">Reset</v-btn>
                 </div>
             </div>
         </v-card>

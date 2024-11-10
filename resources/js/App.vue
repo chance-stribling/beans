@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-    <v-app class="app">
+    <v-app>
         <TopBar />
         <v-main class="pa-0 ma-0">
             <v-container fluid class="pa-0 ma-0">
@@ -23,9 +23,10 @@ export default {
         </v-main>
     </v-app>
 </template>
-<style scoped>
-.app {
-    background-color: black;
+<style>
+.chalk {
+    font-family: "Fredericka the Great", sans-serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
 }
-
 </style>
