@@ -77,19 +77,21 @@ class GameController extends Controller
 
         array_push($players, (Player::where('id',$game->player1_id)->first()));
         array_push($players, (Player::where('id',$game->player2_id)->first()));
+        
         $players[0]->setAttribute('pts', aMatch::where('id', $match_id)->value('player1_pts'));
         $players[0]->setAttribute('golden_beans', Set::where('id', $set_id)->value('player1_matches_won'));
+        
         $players[1]->setAttribute('pts', aMatch::where('id', $match_id)->value('player2_pts'));
         $players[1]->setAttribute('golden_beans', Set::where('id', $set_id)->value('player2_matches_won'));
 
 
-        if($game->num_of_players == 3){
+        if($game->num_of_players >= 3){
             array_push($players, (Player::where('id',$game->player3_id)->first()));
             $players[2]->setAttribute('pts', aMatch::where('id', $match_id)->value('player3_pts'));
             $players[2]->setAttribute('golden_beans', Set::where('id', $set_id)->value('player3_matches_won'));
 
         }
-        else if($game->num_of_players == 4){
+        else if($game->num_of_players >= 4){
             array_push($players, (Player::where('id',$game->player4_id)->first()));
             $players[3]->setAttribute('pts', aMatch::where('id', $match_id)->value('player4_pts'));
             $players[3]->setAttribute('golden_b1eans', Set::where('id', $set_id)->value('player4_matches_won'));

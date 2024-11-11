@@ -60,9 +60,9 @@ export default {
                         set_id: set_id,
                         player1_id: this.game.player1_id,
                         player2_id: this.game.player2_id,
-                        player3_id: this.player3 ? this.game.player3_id : null,
-                        player4_id: this.player4 ? this.game.player4_id : null,
-                        player5_id: this.player5 ? this.game.player5_id : null,
+                        player3_id: this.game.player3_id ? this.game.player3_id : null,
+                        player4_id: this.game.player4_id ? this.game.player4_id : null,
+                        player5_id: this.game.player5_id ? this.game.player5_id : null,
                         num_of_players: this.game.num_of_players,
                     })
                     .then((response) => {
@@ -145,7 +145,7 @@ export default {
             v-model="this.showAlert"
             scroll-strategy="block"
         >
-            <v-card class="overlay-card" color="error">
+            <v-card class="overlay-card" color="secondary">
                 <v-btn
                     size="small"
                     variant="plain"
@@ -153,8 +153,8 @@ export default {
                     class="close-button"
                     @click="this.showAlert = !this.showAlert"
                 ></v-btn>
-                <div class="text-h4">{{ this.alert.title }}</div>
-                <div class="text-h6">{{ this.alert.body }}</div>
+                <div class="text-h4 chalk">{{ this.alert.title }}</div>
+                <div class="text-h6 chalk color-red">{{ this.alert.body }}</div>
             </v-card>
         </v-overlay>
 
@@ -220,7 +220,7 @@ export default {
                 </div>
                 <div class="card-row">
                     <v-card
-                        class="card"
+                        class="match-card"
                         color="secondary"
                         v-for="(match, index) in this.sets[index].matches"
                         @click="
@@ -229,8 +229,8 @@ export default {
                             )
                         "
                     >
-                        <div class="chalk">Match {{ index + 1 }}</div>
-                        <div>
+                        <div class="chalk text-h6 text-center">Match {{ index + 1 }}</div>
+                        <div class="text-left text-h6 ">
                             <div class="chalk">
                                 {{ this.game.player1_nickname }} :
                                 {{ match.player1_pts }} Beans
@@ -244,7 +244,7 @@ export default {
                                 v-if="this.game.num_of_players >= 3"
                             >
                                 {{ this.game.player3_nickname }} :
-                                {{ match.player3_pts }} Beans
+                                {{ match.player3_pts?match.player3_pts:0 }} Beans
                             </div>
                             <div
                                 class="chalk"
@@ -261,17 +261,16 @@ export default {
                                 {{ match.player5_pts }} Beans
                             </div>
                         </div>
-                        <div class="text-center">
-                            Winner: <br /><span class="font-weight-bold">{{
+                        <div v-if="match.winner" class="text-center text-h6 chalk font-weight-bold">
+                            Winner : {{
                                 match.winner_nickname
-                                    ? match.winner_nickname
-                                    : "TBD"
-                            }}</span>
+                            }}
                         </div>
                     </v-card>
                     <v-card
                         v-if="!set.winner"
                         id="add-card"
+                        color="accent"
                         @click="this.createMatch(set.id)"
                     >
                         <div class="text-h6">New Match</div>
@@ -300,20 +299,18 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     padding: 1rem;
 }
-.card {
-    min-height: 200px;
+.match-card {
+    height: fit-content;
     width: 200px;
     background-color: white;
-    color: black;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    margin-bottom: 1rem;
-    margin-right: 1rem;
+    margin-bottom: 15px;
+    padding: 15px;
 }
 .card1 {
     width: 500px;
@@ -325,16 +322,14 @@ export default {
     margin-bottom: 10px;
 }
 #add-card {
-    min-height: 200px;
-    width: 200px;
-    background-color: white;
+    height: 100px;
+    width: 100%;
     color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1rem;
-    margin-right: 1rem;
+    margin-bottom: 15px;
 }
 #add-card:hover {
     scale: 1.1;
@@ -367,13 +362,19 @@ export default {
     justify-content: space-evenly;
     align-items: center;
     height: 250px;
-    width: 500px;
+    width: fit-content;
     padding: 2rem;
+    color: #DB9CA4 !important;
 }
 .close-button {
     position: absolute;
     top: 0;
     right: 0;
     transform: translate(-1rem, 1rem);
+}
+@media only screen and (max-width: 1000px) {
+    .match-card {
+    width: 100%;
+}
 }
 </style>

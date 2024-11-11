@@ -26,7 +26,7 @@ export default {
 <style>
 .chalk {
     font-family: "Fredericka the Great", sans-serif !important;
-    font-weight: 400 !important;
+    font-weight: 600 !important;
     font-style: normal !important;
 }
 </style>

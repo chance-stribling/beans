@@ -1,7 +1,7 @@
 <template>
     <div class="button-pos">
         <v-btn
-            color="white"
+            color="primary"
             height="60px"
             width="60px"
             class="rounded-circle"
@@ -11,7 +11,7 @@
                 icon="mdi-arrow-left"
                 size="large"
                 class="p-0 m-0"
-                color="accent"
+                color=""
             ></v-icon>
         </v-btn>
     </div>
@@ -19,8 +19,8 @@
 <style scoped>
 .button-pos {
     position: absolute;
-    bottom: 2rem;
-    left: 2rem;
+    bottom: 15px;
+    left: 15px;
     z-index: 3;
 }
 </style>
