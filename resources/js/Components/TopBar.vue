@@ -15,12 +15,11 @@
             <div class="text-h4 font-weight-bold col chalk">
                 {{ this.$route.name }} {{ this.$route.params.id }}
             </div>
-            
         </div>
     </v-app-bar>
 </template>
 <style scoped>
-.app-bar{
+.app-bar {
     display: flex;
     width: 100%;
 }
@@ -55,10 +54,10 @@
 }
 @media only screen and (max-width: 1000px) {
     .title {
-    width: 50%;
-}
-.col {
-    width: 50%;
-}
+        width: 50%;
+    }
+    .col {
+        width: 50%;
+    }
 }
 </style>

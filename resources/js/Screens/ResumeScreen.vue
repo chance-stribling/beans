@@ -9,11 +9,12 @@ export default {
     data: () => ({
         inProgressGames: [],
         completedGames: [],
+        completed: false,
         reveal: false,
         player1_name: "",
         isMobile: false,
         inProgressHidden: false,
-        completedHidden: false
+        completedHidden: false,
     }),
     mounted() {
         this.getGamesWithWinners();
@@ -60,9 +61,13 @@ export default {
 <template>
     <v-sheet color="secondary" class="main">
         <BackButton />
-        <v-card color="primary" class="big-card">
-            <div class="d-flex mb-5">
-                <div class="text-h4 chalk text-white mr-2">In Progress</div>
+        <v-card color="primary" class="big-card"  v-if="!this.completed">
+            <div class="text-h4 chalk text-white mb-5">In Progress</div>
+            <div class="my-5">
+                <v-btn class="mr-2" @click="this.completed = false"
+                    >In Progress</v-btn
+                >
+                <v-btn @click="this.completed = true">Completed</v-btn>
             </div>
             <div class="big-card-content">
                 <v-card
@@ -80,7 +85,7 @@ export default {
                             {{ game.player1_sets_won }} Baked Beans
                         </div>
                     </div>
-                    <div class=" mb-2">
+                    <div class="mb-2">
                         <div class="text-h5 chalk">
                             {{ game.player2_nickname }}
                         </div>
@@ -88,7 +93,7 @@ export default {
                             {{ game.player2_sets_won }} Baked Beans
                         </div>
                     </div>
-                    <div v-if="game.player3_id" class=" mb-2">
+                    <div v-if="game.player3_id" class="mb-2">
                         <div class="text-h5 chalk">
                             {{ game.player3_nickname }}
                         </div>
@@ -115,8 +120,14 @@ export default {
                 </v-card>
             </div>
         </v-card>
-        <v-card color="primary" class="big-card">
+        <v-card color="primary" class="big-card" v-if="this.completed">
             <div class="text-h4 chalk text-white mb-5">Completed</div>
+            <div class="my-5">
+                <v-btn class="mr-2" @click="this.completed = false"
+                    >In Progress</v-btn
+                >
+                <v-btn @click="this.completed = true">Completed</v-btn>
+            </div>
             <div class="big-card-content">
                 <v-card
                     v-for="game in completedGames"
@@ -124,7 +135,7 @@ export default {
                     class="mini-card text-h6 elevation-10"
                     @click="this.$router.push('/game/' + game.id)"
                 >
-                <div class="game-num chalk">Game: {{ game.id }}</div>
+                    <div class="game-num chalk">Game: {{ game.id }}</div>
 
                     <div class="mb-2">
                         <div class="text-h5 chalk">
@@ -134,7 +145,7 @@ export default {
                             {{ game.player1_sets_won }} Baked Beans
                         </div>
                     </div>
-                    <div class=" mb-2">
+                    <div class="mb-2">
                         <div class="text-h5 chalk">
                             {{ game.player2_nickname }}
                         </div>
@@ -142,7 +153,7 @@ export default {
                             {{ game.player2_sets_won }} Baked Beans
                         </div>
                     </div>
-                    <div v-if="game.player3_id" class=" mb-2">
+                    <div v-if="game.player3_id" class="mb-2">
                         <div class="text-h5 chalk">
                             {{ game.player3_nickname }}
                         </div>
@@ -175,23 +186,21 @@ export default {
 .main {
     margin-top: 80px;
     width: 100vw;
-    min-height: calc(100dvh - 80px);
+    height: calc(100dvh - 80px);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     padding: 2rem;
 }
 .big-card {
-    width: 45%;
+    width: 90%;
     height: 100%;
     padding: 2rem;
     overflow-y: scroll;
-    
 }
 .big-card-content {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    
 }
 .mini-card {
     width: 230px;
@@ -203,24 +212,25 @@ export default {
     flex-direction: column;
     justify-content: center;
 }
-.game-num{
+.game-num {
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
 }
+
 @media only screen and (max-width: 1000px) {
     .big-card {
         width: 100%;
-        height:  calc(100dvh - 80px - 4rem);
+        height: calc(100dvh - 80px - 4rem);
         margin-bottom: 1rem;
     }
-    .main{
+    .main {
         display: flex;
         flex-direction: column;
     }
     .mini-card {
-    width: 100%;
-    height: fit-content;
-}
+        width: 100%;
+        height: fit-content;
+    }
 }
 </style>
