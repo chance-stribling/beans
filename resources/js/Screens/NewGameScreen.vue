@@ -75,10 +75,10 @@ export default {
 <template>
     <BackButton />
     <v-sheet color="secondary" class="main">
-        <v-card class="card" color="accent">
-            <div class="text-h4 font-weight-bold title">New Game</div>
+        <v-card class="card" color="primary">
+            <div class="text-h4 font-weight-bold title chalk">New Game</div>
             <div class="input">
-                <div class="text-h6">Number of Players</div>
+                <div class="text-h6 chalk">Number of Players</div>
                 <v-slider
                     color="secondary"
                     v-model="num_of_players"
@@ -92,6 +92,7 @@ export default {
                             density="compact"
                             style="width: 80px"
                             type="number"
+                            class="chalk"
                             :max="5"
                             :min="2"
                             variant="outlined"
@@ -100,7 +101,7 @@ export default {
                     </template>
                 </v-slider>
 
-                <div class="text-h6">Sets in a Game</div>
+                <div class="text-h6 chalk">Sets in a Game</div>
                 <v-slider
                     color="secondary"
                     v-model="num_of_sets"
@@ -110,6 +111,7 @@ export default {
                 >
                     <template v-slot:append>
                         <v-text-field
+                            class="chalk"
                             v-model="num_of_sets"
                             density="compact"
                             style="width: 80px"
@@ -122,7 +124,7 @@ export default {
                     </template>
                 </v-slider>
 
-                <div class="text-h6">Matches in a Set</div>
+                <div class="text-h6 chalk">Matches in a Set</div>
                 <v-slider
                     color="secondary"
                     v-model="num_of_matches"
@@ -132,6 +134,7 @@ export default {
                 >
                     <template v-slot:append>
                         <v-text-field
+                            class="chalk"
                             v-model="num_of_matches"
                             density="compact"
                             style="width: 80px"
@@ -195,8 +198,8 @@ export default {
 <style scoped>
 .main {
     margin-top: 80px;
-    min-height: 100dvh;
-    padding: 2rem;
+    min-height: calc(100dvh - 80px);
+    padding: 15px;
     width: 100%;
     display: flex;
     color: white;
@@ -212,7 +215,7 @@ export default {
 }
 .card {
     color: white !important;
-    width: 90vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;

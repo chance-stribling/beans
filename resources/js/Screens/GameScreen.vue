@@ -67,6 +67,7 @@ export default {
                     })
                     .then((response) => {
                         this.getSets();
+                        console.log(response);
                     })
                     .catch((error) => console.log(error));
             }
@@ -138,6 +139,7 @@ export default {
         </div>
     </div>
     <v-sheet color="secondary" class="main">
+        <!-- Too many matches overlay -->
         <v-overlay
             class="overlay"
             v-model="this.showAlert"
@@ -155,44 +157,71 @@ export default {
                 <div class="text-h6">{{ this.alert.body }}</div>
             </v-card>
         </v-overlay>
-        <div class="versus-row">
-            <div class="text-h4 text-white">
+
+        <!-- Versus row -->
+        <v-card color="primary" class="versus-row">
+            <div class="text-h4 text-white chalk">
                 {{ this.game.player1_nickname }} <br />
-                <!-- Sets Won: {{ this.game.player1_sets_won }} -->
             </div>
-            <div class="text-h4 text-white">&nbsp;VS.&nbsp;</div>
-            <div class="text-h4 text-white">
+            <div class="text-h4 text-white chalk">&nbsp;VS.&nbsp;</div>
+            <div class="text-h4 text-white chalk">
                 {{ this.game.player2_nickname }} <br />
-                <!-- Sets Won: {{ this.game.player2_sets_won }} -->
             </div>
-            <div class="text-h4 text-white" v-if="this.game.player3_nickname">
+            <div
+                class="text-h4 text-white chalk"
+                v-if="this.game.player3_nickname"
+            >
                 &nbsp;VS.&nbsp;
             </div>
-            <div class="text-h4 text-white" v-if="this.game.player3_nickname">
+            <div
+                class="text-h4 text-white chalk"
+                v-if="this.game.player3_nickname"
+            >
                 {{ this.game.player3_nickname }}
             </div>
-            <div class="text-h4 text-white" v-if="this.game.player4_nickname">
+            <div
+                class="text-h4 text-white chalk"
+                v-if="this.game.player4_nickname"
+            >
                 &nbsp;VS.&nbsp;
             </div>
-            <div class="text-h4 text-white" v-if="this.game.player4_nickname">
+            <div
+                class="text-h4 text-white chalk"
+                v-if="this.game.player4_nickname"
+            >
                 {{ this.game.player4_nickname }}
             </div>
-            <div class="text-h4 text-white" v-if="this.game.player5_nickname">
+            <div
+                class="text-h4 text-white chalk"
+                v-if="this.game.player5_nickname"
+            >
                 &nbsp;VS.&nbsp;
             </div>
-            <div class="text-h4 text-white" v-if="this.game.player5_nickname">
+            <div
+                class="text-h4 text-white chalk"
+                v-if="this.game.player5_nickname"
+            >
                 {{ this.game.player5_nickname }}
             </div>
-        </div>
-        <div v-for="(set, index) in this.sets">
+        </v-card>
+
+        <!-- Set Card -->
+        <v-card
+            color="primary"
+            class="set-card"
+            v-for="(set, index) in this.sets"
+        >
             <div v-if="index == 0 || this.sets[index - 1].winner">
-                <div class="text-h4 text-white mb-5">Set {{ index + 1 }}</div>
-                <div class="text-h4 text-white mb-5">
+                <div class="text-h4 text-white mb-5 chalk">
+                    Set {{ index + 1 }}
+                </div>
+                <div class="text-h4 text-white mb-5 chalk" v-if="set.winner">
                     Winner: {{ set.winner }}
                 </div>
                 <div class="card-row">
                     <v-card
                         class="card"
+                        color="secondary"
                         v-for="(match, index) in this.sets[index].matches"
                         @click="
                             this.$router.push(
@@ -200,27 +229,36 @@ export default {
                             )
                         "
                     >
-                        <div>Match {{ index + 1 }}</div>
+                        <div class="chalk">Match {{ index + 1 }}</div>
                         <div>
-                            <div>
+                            <div class="chalk">
                                 {{ this.game.player1_nickname }} :
-                                {{ match.player1_pts }}
+                                {{ match.player1_pts }} Beans
                             </div>
-                            <div>
+                            <div class="chalk">
                                 {{ this.game.player2_nickname }} :
-                                {{ match.player2_pts }}
+                                {{ match.player2_pts }} Beans
                             </div>
-                            <div v-if="this.game.num_of_players >= 3">
+                            <div
+                                class="chalk"
+                                v-if="this.game.num_of_players >= 3"
+                            >
                                 {{ this.game.player3_nickname }} :
-                                {{ match.player3_pts }}
+                                {{ match.player3_pts }} Beans
                             </div>
-                            <div v-if="this.game.num_of_players >= 4">
+                            <div
+                                class="chalk"
+                                v-if="this.game.num_of_players >= 4"
+                            >
                                 {{ this.game.player4_nickname }} :
-                                {{ match.player4_pts }}
+                                {{ match.player4_pts }} Beans
                             </div>
-                            <div v-if="this.game.num_of_players == 5">
+                            <div
+                                class="chalk"
+                                v-if="this.game.num_of_players == 5"
+                            >
                                 {{ this.game.player5_nickname }} :
-                                {{ match.player5_pts }}
+                                {{ match.player5_pts }} Beans
                             </div>
                         </div>
                         <div class="text-center">
@@ -241,17 +279,20 @@ export default {
                     </v-card>
                 </div>
             </div>
-        </div>
+        </v-card>
     </v-sheet>
 </template>
 <style scoped>
 .main {
-    margin-top: 64px;
+    margin-top: 80px;
     width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 15px;
+}
+.set-card {
+    padding: 15px;
 }
 .winner {
     width: 100%;
@@ -311,6 +352,8 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 15px;
+    padding: 15px;
 }
 .overlay {
     display: flex;

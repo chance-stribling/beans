@@ -67,7 +67,7 @@ export default {
                 <v-switch
                     class="chalk"
                     v-model="this.completed"
-                    :label="this.completed?'In Progress':'Completed'"
+                    :label="this.completed ? 'In Progress' : 'Completed'"
                     hide-details
                     inset
                 ></v-switch>
@@ -129,7 +129,7 @@ export default {
                 <v-switch
                     class="chalk"
                     v-model="this.completed"
-                    :label="this.completed?'In Progress':'Completed'"
+                    :label="this.completed ? 'In Progress' : 'Completed'"
                     hide-details
                     inset
                 ></v-switch>
