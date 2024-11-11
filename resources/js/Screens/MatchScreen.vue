@@ -171,6 +171,7 @@ export default {
                 )
                 .then((response) => {
                     this.players = response.data;
+                    console.log(response)
                 })
                 .catch((error) => console.log(error));
         },
@@ -360,7 +361,7 @@ export default {
 };
 </script>
 <template>
-    <div class="main">
+    <v-sheet color="secondary" class="main">
         <v-overlay
             class="overlay"
             v-model="this.zeroAlert"
@@ -386,10 +387,10 @@ export default {
                 <div class="text-h3">{{ this.match.winner_nickname }}</div>
             </v-card>
         </div>
-        <div v-for="(player, index) in this.players" v-if="!this.match.winner">
-            <v-card class="card1">
-                <div class="text-h4">{{ player.nickname }}</div>
-                <div class="text-h3">{{ player.pts }}</div>
+        <div class="player-cards" v-for="(player, index) in this.players" v-if="!this.match.winner">
+            <v-card color="primary" class="card1">
+                <div class="text-h5 chalk">{{ player.nickname }}</div>
+                <div class="text-h4 chalk">{{ player.pts }}</div>
                 <div class="btns">
                     <v-btn
                         color="error"
@@ -409,39 +410,45 @@ export default {
                     >
                 </div>
             </v-card>
-            <v-card class="card2">
-                <div class="text-h4">Beans</div>
-                <div class="text-h3">{{ player.golden_beans }}</div>
+            <v-card class="card2" color="primary">
+                <div class="text-h5 chalk">Beans</div>
+                <div class="text-h4 chalk">{{ player.golden_beans }}</div>
             </v-card>
         </div>
-    </div>
+    </v-sheet>
 </template>
 <style scoped>
 .main {
-    height: 100vh;
+    margin-top: 80px;
+    min-height: calc(100dvh - 80px);
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 15px;
+}
+.player-cards{
+    width: calc(50% - 15px);
 }
 .card1 {
-    width: 500px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    padding: 2rem;
-    margin-bottom: 10px;
+    padding: 15px;
+    margin-bottom: 5px;
 }
 .card2 {
-    width: 500px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    padding: 2rem;
+    padding: 15px;
+    margin-bottom: 15px;
 }
 .btns {
     width: 100%;
