@@ -30,17 +30,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 15px;
 }
 .card {
-    width: 90vw;
+    width: 100%;
     color: white !important;
     font-weight: bold;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 15px;
     padding: 2rem;
 }
 </style>

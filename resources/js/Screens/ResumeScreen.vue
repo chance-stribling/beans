@@ -61,13 +61,16 @@ export default {
 <template>
     <v-sheet color="secondary" class="main">
         <BackButton />
-        <v-card color="primary" class="big-card"  v-if="!this.completed">
-            <div class="text-h4 chalk text-white mb-5">In Progress</div>
-            <div class="my-5">
-                <v-btn class="mr-2" @click="this.completed = false"
-                    >In Progress</v-btn
-                >
-                <v-btn @click="this.completed = true">Completed</v-btn>
+        <v-card color="primary" class="big-card" v-if="!this.completed">
+            <div class="mb-5 d-flex justify-space-between align-center">
+                <div class="text-h4 chalk text-white">In Progress</div>
+                <v-switch
+                    class="chalk"
+                    v-model="this.completed"
+                    :label="this.completed?'In Progress':'Completed'"
+                    hide-details
+                    inset
+                ></v-switch>
             </div>
             <div class="big-card-content">
                 <v-card
@@ -121,12 +124,15 @@ export default {
             </div>
         </v-card>
         <v-card color="primary" class="big-card" v-if="this.completed">
-            <div class="text-h4 chalk text-white mb-5">Completed</div>
-            <div class="my-5">
-                <v-btn class="mr-2" @click="this.completed = false"
-                    >In Progress</v-btn
-                >
-                <v-btn @click="this.completed = true">Completed</v-btn>
+            <div class="mb-5 d-flex justify-space-between align-center">
+                <div class="text-h4 chalk text-white">Completed</div>
+                <v-switch
+                    class="chalk"
+                    v-model="this.completed"
+                    :label="this.completed?'In Progress':'Completed'"
+                    hide-details
+                    inset
+                ></v-switch>
             </div>
             <div class="big-card-content">
                 <v-card
@@ -189,12 +195,13 @@ export default {
     height: calc(100dvh - 80px);
     display: flex;
     justify-content: center;
-    padding: 2rem;
+    align-items: center;
+    padding: 15px;
 }
 .big-card {
-    width: 90%;
+    width: 99%;
     height: 100%;
-    padding: 2rem;
+    padding: 15px;
     overflow-y: scroll;
 }
 .big-card-content {
@@ -203,11 +210,11 @@ export default {
     flex-wrap: wrap;
 }
 .mini-card {
-    width: 230px;
+    width: calc(25% - 15px);
     height: 400px;
     margin-bottom: 20px;
-    margin-right: 20px;
-    padding: 1rem;
+    margin-right: 15px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -217,20 +224,15 @@ export default {
     top: 0.5rem;
     right: 0.5rem;
 }
-
 @media only screen and (max-width: 1000px) {
-    .big-card {
-        width: 100%;
-        height: calc(100dvh - 80px - 4rem);
-        margin-bottom: 1rem;
-    }
-    .main {
-        display: flex;
-        flex-direction: column;
-    }
     .mini-card {
         width: 100%;
         height: fit-content;
+        margin-bottom: 15px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 </style>
